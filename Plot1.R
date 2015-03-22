@@ -1,0 +1,8 @@
+setwd("~/Documents/Data Science/PollutantData_Project")
+NEI <- readRDS("summarySCC_PM25.rds")
+SCC <- readRDS("Source_Classification_Code.rds")
+NEIbyYear <- aggregate(NEI$Emissions ~ NEI$year,FUN=sum)
+colnames(NEIbyYear) <- c("Year", "Emissions")
+png("plot1.png", height=480,width=480)
+plot(NEIbyYear$Year,NEIbyYear$Emissions,type="l",ylab="Total PM2.5 Emisisons",xlab="Year",col="red" ,main="Total PM2.5 Emissions in U.S. by Year")
+dev.off()
