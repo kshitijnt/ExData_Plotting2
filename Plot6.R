@@ -23,6 +23,7 @@ MotorAgg[MotorAgg$fips == "24510",][,"city"] <- "Baltimore"
 
 
 # Plot the Data
+library(ggplot2)
 png("plot6.png", height=480,width=480)
 p <- ggplot(MotorAgg, aes(x=year, y=Emissions, colour=city)) +
   +     geom_smooth( method="loess") +
